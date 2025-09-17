@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Mobile Test Automation Suite" verbose="1" parallel="tests" thread-count="2">
+
+    <listeners>
+        <listener class-name="listeners.TestListener"/>
+        <listener class-name="listeners.RetryListener"/>
+    </listeners>
+
+    <!-- Android Test Execution -->
+    <test name="Android Tests" preserve-order="true">
+        <parameter name="platform" value="android"/>
+        <parameter name="deviceName" value="Android Emulator"/>
+        <parameter name="platformVersion" value="13.0"/>
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <include name="regression"/>
+                <include name="android"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="runners.TestRunner">
+                <methods>
+                    <include name="scenarios"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- iOS Test Execution -->
+    <test name="iOS Tests" preserve-order="true">
+        <parameter name="platform" value="ios"/>
+        <parameter name="deviceName" value="iPhone 14"/>
+        <parameter name="platformVersion" value="16.0"/>
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <include name="regression"/>
+                <include name="ios"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="runners.TestRunner">
+                <methods>
+                    <include name="scenarios"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Smoke Tests Only -->
+    <test name="Smoke Tests" preserve-order="true">
+        <parameter name="platform" value="android"/>
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="runners.TestRunner"/>
+        </classes>
+    </test>
+
+</suite>

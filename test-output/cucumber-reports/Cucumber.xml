@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="62.133" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="Login Functionality" name="Successful login with valid credentials" time="61.228">
+<failure type="java.lang.AssertionError" message="Login should be successful expected [true] but found [false]">
+<![CDATA[java.lang.AssertionError: Login should be successful expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at stepDefinitions.LoginSteps.theUserShouldBeLoggedInSuccessfully(LoginSteps.java:82)
+	at ✽.the user should be logged in successfully(file:///C:/Users/Nikhil%20Raj/oliveMobileApp/src/test/resources/features/Login.feature:15)
+]]>
+</failure>
+<system-out><![CDATA[
+Given user selects the language.............................................passed
+When the user enters username "demo@yopmail.com"............................passed
+And the user enters password "Test@123".....................................passed
+And the user clicks the login button........................................passed
+Then the user should be logged in successfully..............................failed
+]]></system-out>
+</testcase>
+</testsuite>
